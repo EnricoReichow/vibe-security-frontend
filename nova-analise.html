@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vibe Security · Nova análise</title>
+<link rel="icon" href="assets/logo-without-description.png" type="image/png">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<div class="screen">
+
+  <header class="app-header">
+    <a href="index.html" class="logo-lockup logo-lockup--header">
+      <img src="assets/logo-without-description.png" alt="" class="logo-lockup__mark">
+      <span class="logo-lockup__word">Vibe Security</span>
+    </a>
+    <nav class="header-nav">
+      <a href="perfil.html">Perfil</a>
+      <a href="nova-analise.html" class="is-active">Nova análise</a>
+      <a href="varredura.html">Varredura</a>
+      <a href="agendamentos.html">Agendamentos</a>
+    </nav>
+    <div class="app-header__meta">
+      <a href="index.html" class="btn btn--ghost btn--sm">Sair</a>
+    </div>
+  </header>
+
+  <main style="flex: 1; display: flex; align-items: center; padding: 48px 24px;">
+    <div class="container" style="max-width: 620px;">
+
+      <p class="eyebrow" style="margin-bottom: 10px;">Nova análise</p>
+      <h1 style="font-size: 30px; margin-bottom: 12px;">Conecte seu projeto</h1>
+      <p class="text-muted" style="font-size: 15px; margin-bottom: 32px;">
+        Conecte um repositório ou envie o código diretamente. Nada é armazenado além do necessário para a varredura.
+      </p>
+
+      <form action="varredura.html" method="get">
+        <input type="hidden" name="cargo" data-carry-param="cargo">
+
+        <div class="segmented-block" style="margin-bottom: 28px;">
+          <div class="segmented">
+            <input type="radio" name="metodo" id="metodo-repo" checked>
+            <label for="metodo-repo">Conectar repositório</label>
+            <input type="radio" name="metodo" id="metodo-upload">
+            <label for="metodo-upload">Fazer upload</label>
+          </div>
+
+          <div class="tab-panel" data-panel="repo" style="margin-top: 20px;">
+            <div class="card" style="padding: 16px 18px; display: flex; align-items: center; justify-content: space-between; margin-bottom: 18px;">
+              <div style="display: flex; align-items: center; gap: 12px;">
+                <div class="avatar">MD</div>
+                <div>
+                  <p style="font-size: 14px; font-weight: 600;">Conectado como @matheus-dev</p>
+                  <p class="text-faint" style="font-size: 13px;">GitHub</p>
+                </div>
+              </div>
+              <a href="#" class="btn btn--ghost btn--sm">Trocar conta</a>
+            </div>
+
+            <div class="field">
+              <label for="repositorio">Repositório</label>
+              <select id="repositorio" name="repositorio">
+                <option value="projeto-aurora-api">projeto-aurora-api</option>
+                <option value="erp-interno-demo">erp-interno-demo</option>
+                <option value="landing-page-v2">landing-page-v2</option>
+                <option value="bot-atendimento-whatsapp">bot-atendimento-whatsapp</option>
+              </select>
+              <span class="field__hint">Branch: main</span>
+            </div>
+          </div>
+
+          <div class="tab-panel" data-panel="upload" style="margin-top: 20px;">
+            <div class="dropzone">
+              <span class="dropzone__icon">↑</span>
+              <span style="font-size: 14px;">Arraste arquivos ou pastas aqui</span>
+              <span style="display: flex; align-items: center; gap: 8px; font-size: 14px;">
+                <label class="dropzone__browse" for="arquivo-upload">selecionar arquivos</label>
+                <span class="text-faint">ou</span>
+                <label class="dropzone__browse" for="pasta-upload">selecionar pasta</label>
+              </span>
+              <span class="text-faint" style="font-size: 13px;">.zip, .js, .ts, .py · até 50MB</span>
+              <input type="file" id="arquivo-upload" name="arquivo-upload" multiple>
+              <input type="file" id="pasta-upload" name="pasta-upload" webkitdirectory directory mozdirectory multiple>
+            </div>
+
+            <div class="upload-list" id="upload-list" style="display: none;"></div>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="descricao">Descreva brevemente o projeto</label>
+          <textarea id="descricao" name="descricao" placeholder="Ex.: API interna de gestão de pedidos, roda em produção na nuvem e manipula dados de clientes (nome, e-mail, endereço) e pagamentos."></textarea>
+          <span class="field__hint">Conte onde o projeto vai rodar (ex.: produção, uso interno, app público) e que tipo de dado ele manipula. Isso ajuda a priorizar as vulnerabilidades encontradas.</span>
+        </div>
+
+        <div style="display: flex; justify-content: flex-end; margin-top: 28px;">
+          <button type="submit" class="btn btn--primary">Iniciar varredura</button>
+        </div>
+
+      </form>
+    </div>
+  </main>
+
+</div>
+
+<script src="js/carry-params.js"></script>
+<script src="js/upload-list.js"></script>
+</body>
+</html>

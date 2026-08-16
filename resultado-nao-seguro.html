@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vibe Security · Resultado: não seguro</title>
+<link rel="icon" href="assets/logo-without-description.png" type="image/png">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<div class="screen">
+
+  <header class="app-header">
+    <a href="index.html" class="logo-lockup logo-lockup--header">
+      <img src="assets/logo-without-description.png" alt="" class="logo-lockup__mark">
+      <span class="logo-lockup__word">Vibe Security</span>
+    </a>
+    <nav class="header-nav">
+      <a href="perfil.html">Perfil</a>
+      <a href="nova-analise.html">Nova análise</a>
+      <a href="varredura.html">Varredura</a>
+      <a href="agendamentos.html">Agendamentos</a>
+    </nav>
+    <div class="app-header__meta">
+      <form action="varredura.html" method="get" style="margin: 0;">
+        <input type="hidden" name="cargo" data-carry-param="cargo">
+        <button type="submit" class="btn btn--primary btn--sm">↻ Fazer varredura novamente</button>
+      </form>
+      <a href="index.html" class="btn btn--ghost btn--sm">Sair</a>
+    </div>
+  </header>
+
+  <main style="flex: 1; padding: 56px 24px 80px;">
+    <div class="container container--wide" style="max-width: 720px;">
+
+      <div style="text-align: center; margin-bottom: 40px;">
+        <div class="status-icon status-icon--danger">!</div>
+        <p class="eyebrow" style="margin-top: 22px;">erp-interno-demo · 214 arquivos · 15 ago 2026, 16:47</p>
+        <h1 style="font-size: 30px; margin-top: 10px;">Não seguro: corrija antes de publicar</h1>
+        <p class="text-muted" style="max-width: 480px; margin: 14px auto 0;">
+          Encontramos 4 vulnerabilidades, ordenadas por gravidade. Veja o que fazer em cada uma. Depois é só rodar a varredura de novo.
+        </p>
+        <p class="badge badge--info" id="cargo-badge" style="margin-top: 16px; display: none;">
+          <span class="badge__dot"></span>Explicações adaptadas para: <span id="cargo-label"></span>
+        </p>
+      </div>
+
+      <div class="vuln-list">
+
+        <!-- 1. CRÍTICA — credencial exposta -->
+        <div class="vuln-card">
+          <input type="checkbox" class="vuln-toggle" id="vt-1">
+
+          <div class="vuln-card__head">
+            <span class="badge badge--danger"><span class="badge__dot"></span>Crítica</span>
+            <h3>Credencial de API exposta no código</h3>
+          </div>
+          <p class="vuln-card__location">src/config/payments.js:14</p>
+
+          <p class="vuln-simple" data-vuln-id="1">
+            Encontramos uma senha de acesso (uma "chave de API") escrita diretamente dentro do código, junto com as configurações de pagamento. É como deixar a senha do cofre anotada numa etiqueta colada nele: qualquer pessoa que veja esse código consegue usar essa chave para acessar sua conta de pagamentos.
+          </p>
+          <p class="vuln-technical">
+            Uma chave de API da Stripe (<code>sk_live_••••••••1a2b</code>) está hardcoded em texto plano no arquivo <code>src/config/payments.js:14</code> e foi versionada no histórico do Git. Qualquer pessoa com acesso ao repositório (ou a um fork público, se houver) pode extrair a chave e realizar operações na conta da Stripe associada.
+          </p>
+          <label class="vuln-toggle-label" for="vt-1">
+            <span class="label-off">Ver versão técnica</span>
+            <span class="label-on">Ver versão simples</span>
+          </label>
+
+          <p class="vuln-card__section-label">O que fazer</p>
+          <div class="fix-tabs">
+            <div class="segmented segmented--sm">
+              <input type="radio" name="fix-mode-1" id="fix-1-passos" class="fix-input" data-target="passos" checked>
+              <label for="fix-1-passos">Passo a passo</label>
+              <input type="radio" name="fix-mode-1" id="fix-1-prompt" class="fix-input" data-target="prompt">
+              <label for="fix-1-prompt">Prompt para IA</label>
+            </div>
+
+            <div class="fix-panel" data-fix="passos">
+              <ol class="fix-steps">
+                <li>Não compartilhe esse repositório publicamente até corrigir isso.</li>
+                <li>Peça para quem administra a conta de pagamentos (Stripe) revogar essa chave imediatamente e gerar uma nova.</li>
+                <li>Peça a um desenvolvedor para mover essa chave para fora do código, num "cofre de variáveis de ambiente", ele vai entender esse termo.</li>
+              </ol>
+            </div>
+            <div class="fix-panel" data-fix="prompt">
+              <div class="prompt-box">
+                <pre id="prompt-1">Remova a chave de API da Stripe hardcoded em src/config/payments.js e substitua por uma leitura da variável de ambiente STRIPE_SECRET_KEY (via process.env). Adicione um arquivo .env.example com a variável vazia, garanta que .env está no .gitignore, e não deixe nenhum valor sensível hardcoded no código.</pre>
+                <button type="button" class="btn btn--secondary btn--sm js-copy-prompt" data-copy-target="prompt-1">Copiar prompt</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="vuln-card__footer">
+            <a class="btn btn--ghost btn--sm" href="mailto:?subject=Vulnerabilidade%20encontrada%20%E2%80%94%20Credencial%20de%20API%20exposta%20no%20c%C3%B3digo&body=Resumo%20tecnico%20gerado%20pelo%20Vibe%20Security%20para%20o%20projeto%20erp-interno-demo.%0A%0ASeveridade%3A%20Critica%0ALocal%3A%20src/config/payments.js%3A14%0A%0ADescricao%3A%20Uma%20chave%20de%20API%20da%20Stripe%20%28sk_live_%23%23%23%23%23%23%23%231a2b%29%20esta%20hardcoded%20em%20texto%20plano%20no%20arquivo%20e%20foi%20versionada%20no%20historico%20do%20Git.%20Qualquer%20pessoa%20com%20acesso%20ao%20repositorio%20pode%20extrair%20a%20chave%20e%20realizar%20operacoes%20na%20conta%20de%20pagamentos%20associada.%0A%0ACorrecao%20sugerida%3A%20mover%20a%20chave%20para%20uma%20variavel%20de%20ambiente%20%28STRIPE_SECRET_KEY%29%2C%20revogar%20a%20chave%20atual%20e%20gerar%20uma%20nova.">Encaminhar resumo técnico</a>
+          </div>
+        </div>
+
+        <!-- 2. ALTA — dependência vulnerável -->
+        <div class="vuln-card">
+          <input type="checkbox" class="vuln-toggle" id="vt-2">
+
+          <div class="vuln-card__head">
+            <span class="badge badge--danger"><span class="badge__dot"></span>Alta</span>
+            <h3>Dependência desatualizada com falha conhecida</h3>
+          </div>
+          <p class="vuln-card__location">package.json · lodash@4.17.15</p>
+
+          <p class="vuln-simple" data-vuln-id="2">
+            Uma das ferramentas prontas ("bibliotecas") que o projeto usa por baixo dos panos está desatualizada e tem uma falha de segurança já conhecida publicamente. É como usar uma fechadura com um defeito que já foi divulgado. Quem souber do defeito pode tentar se aproveitar dele.
+          </p>
+          <p class="vuln-technical">
+            A dependência <code>lodash</code> está na versão 4.17.15, vulnerável a um caso de "prototype pollution" (CVE-2020-8203) que pode permitir a manipulação de objetos internos da aplicação e, em certos fluxos, levar a negação de serviço. Corrigido a partir da versão 4.17.19.
+          </p>
+          <label class="vuln-toggle-label" for="vt-2">
+            <span class="label-off">Ver versão técnica</span>
+            <span class="label-on">Ver versão simples</span>
+          </label>
+
+          <p class="vuln-card__section-label">O que fazer</p>
+          <div class="fix-tabs">
+            <div class="segmented segmented--sm">
+              <input type="radio" name="fix-mode-2" id="fix-2-passos" class="fix-input" data-target="passos" checked>
+              <label for="fix-2-passos">Passo a passo</label>
+              <input type="radio" name="fix-mode-2" id="fix-2-prompt" class="fix-input" data-target="prompt">
+              <label for="fix-2-prompt">Prompt para IA</label>
+            </div>
+
+            <div class="fix-panel" data-fix="passos">
+              <ol class="fix-steps">
+                <li>Peça para um desenvolvedor atualizar a biblioteca "lodash" para a versão mais recente.</li>
+                <li>Depois de atualizar, rode os testes do projeto (ou peça para alguém rodar) para garantir que nada quebrou.</li>
+                <li>Repita esse processo periodicamente: dependências desatualizadas são uma das causas mais comuns de invasões.</li>
+              </ol>
+            </div>
+            <div class="fix-panel" data-fix="prompt">
+              <div class="prompt-box">
+                <pre id="prompt-2">Atualize a dependência lodash no package.json para a versão ^4.17.21 (ou mais recente), reinstale as dependências e verifique se não há quebras de compatibilidade nos pontos do código que usam funções do lodash.</pre>
+                <button type="button" class="btn btn--secondary btn--sm js-copy-prompt" data-copy-target="prompt-2">Copiar prompt</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="vuln-card__footer">
+            <a class="btn btn--ghost btn--sm" href="mailto:?subject=Vulnerabilidade%20encontrada%20%E2%80%94%20Depend%C3%AAncia%20desatualizada%20com%20falha%20conhecida&body=Resumo%20tecnico%20gerado%20pelo%20Vibe%20Security%20para%20o%20projeto%20erp-interno-demo.%0A%0ASeveridade%3A%20Alta%0ALocal%3A%20package.json%20%28lodash%404.17.15%29%0A%0ADescricao%3A%20a%20dependencia%20lodash%20esta%20na%20versao%204.17.15%2C%20vulneravel%20a%20um%20caso%20de%20prototype%20pollution%20%28CVE-2020-8203%29%2C%20corrigido%20a%20partir%20da%20versao%204.17.19.%0A%0ACorrecao%20sugerida%3A%20atualizar%20lodash%20para%20%5E4.17.21%20ou%20mais%20recente%20e%20reexecutar%20os%20testes.">Encaminhar resumo técnico</a>
+          </div>
+        </div>
+
+        <!-- 3. MÉDIA — validação de entrada -->
+        <div class="vuln-card">
+          <input type="checkbox" class="vuln-toggle" id="vt-3">
+
+          <div class="vuln-card__head">
+            <span class="badge badge--warn"><span class="badge__dot"></span>Média</span>
+            <h3>Ausência de validação de entrada</h3>
+          </div>
+          <p class="vuln-card__location">src/routes/pedidos.js:42 · POST /api/pedidos</p>
+
+          <p class="vuln-simple" data-vuln-id="3">
+            A rota que recebe novos pedidos aceita qualquer informação enviada, sem checar se ela faz sentido antes de usar. É como aceitar qualquer envelope pela porta sem olhar o que tem dentro. Alguém pode aproveitar isso para enviar algo malicioso em vez de um pedido de verdade.
+          </p>
+          <p class="vuln-technical">
+            O endpoint <code>POST /api/pedidos</code> consome o corpo da requisição diretamente, sem validação de schema ou sanitização de tipos/tamanhos. Isso abre espaço para payloads malformados, uso indevido de campos não esperados e ataques de injeção em camadas posteriores.
+          </p>
+          <label class="vuln-toggle-label" for="vt-3">
+            <span class="label-off">Ver versão técnica</span>
+            <span class="label-on">Ver versão simples</span>
+          </label>
+
+          <p class="vuln-card__section-label">O que fazer</p>
+          <div class="fix-tabs">
+            <div class="segmented segmented--sm">
+              <input type="radio" name="fix-mode-3" id="fix-3-passos" class="fix-input" data-target="passos" checked>
+              <label for="fix-3-passos">Passo a passo</label>
+              <input type="radio" name="fix-mode-3" id="fix-3-prompt" class="fix-input" data-target="prompt">
+              <label for="fix-3-prompt">Prompt para IA</label>
+            </div>
+
+            <div class="fix-panel" data-fix="passos">
+              <ol class="fix-steps">
+                <li>Peça a um desenvolvedor para adicionar uma validação dos dados recebidos antes de processá-los.</li>
+                <li>Garanta que campos obrigatórios sejam checados e que tipos incorretos sejam rejeitados com uma mensagem clara.</li>
+              </ol>
+            </div>
+            <div class="fix-panel" data-fix="prompt">
+              <div class="prompt-box">
+                <pre id="prompt-3">Adicione validação de schema (ex.: com zod ou joi) no corpo da requisição do endpoint POST /api/pedidos em src/routes/pedidos.js, rejeitando com status 400 qualquer payload que não corresponda ao formato esperado (campos obrigatórios, tipos e tamanhos).</pre>
+                <button type="button" class="btn btn--secondary btn--sm js-copy-prompt" data-copy-target="prompt-3">Copiar prompt</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="vuln-card__footer">
+            <a class="btn btn--ghost btn--sm" href="mailto:?subject=Vulnerabilidade%20encontrada%20%E2%80%94%20Aus%C3%AAncia%20de%20valida%C3%A7%C3%A3o%20de%20entrada&body=Resumo%20tecnico%20gerado%20pelo%20Vibe%20Security%20para%20o%20projeto%20erp-interno-demo.%0A%0ASeveridade%3A%20Media%0ALocal%3A%20src/routes/pedidos.js%3A42%20%28POST%20/api/pedidos%29%0A%0ADescricao%3A%20o%20endpoint%20consome%20o%20corpo%20da%20requisicao%20diretamente%2C%20sem%20validacao%20de%20schema%20ou%20sanitizacao%20de%20tipos/tamanhos%2C%20abrindo%20espaco%20para%20payloads%20malformados.%0A%0ACorrecao%20sugerida%3A%20adicionar%20validacao%20de%20schema%20%28ex.%3A%20zod%20ou%20joi%29%20e%20rejeitar%20com%20status%20400%20payloads%20fora%20do%20formato%20esperado.">Encaminhar resumo técnico</a>
+          </div>
+        </div>
+
+        <!-- 4. BAIXA — cabeçalhos de segurança -->
+        <div class="vuln-card">
+          <input type="checkbox" class="vuln-toggle" id="vt-4">
+
+          <div class="vuln-card__head">
+            <span class="badge badge--warn"><span class="badge__dot"></span>Baixa</span>
+            <h3>Cabeçalhos de segurança ausentes</h3>
+          </div>
+          <p class="vuln-card__location">configuração global do servidor</p>
+
+          <p class="vuln-simple" data-vuln-id="4">
+            O site não está enviando algumas instruções extras de segurança para o navegador de quem acessa. Sozinho isso não é grave, mas é uma camada de proteção a mais que está faltando.
+          </p>
+          <p class="vuln-technical">
+            A aplicação não define cabeçalhos HTTP de segurança recomendados (<code>Content-Security-Policy</code>, <code>X-Content-Type-Options</code>, <code>Strict-Transport-Security</code>). Isso reduz as camadas de defesa contra XSS, sniffing de MIME e downgrade de conexão.
+          </p>
+          <label class="vuln-toggle-label" for="vt-4">
+            <span class="label-off">Ver versão técnica</span>
+            <span class="label-on">Ver versão simples</span>
+          </label>
+
+          <p class="vuln-card__section-label">O que fazer</p>
+          <div class="fix-tabs">
+            <div class="segmented segmented--sm">
+              <input type="radio" name="fix-mode-4" id="fix-4-passos" class="fix-input" data-target="passos" checked>
+              <label for="fix-4-passos">Passo a passo</label>
+              <input type="radio" name="fix-mode-4" id="fix-4-prompt" class="fix-input" data-target="prompt">
+              <label for="fix-4-prompt">Prompt para IA</label>
+            </div>
+
+            <div class="fix-panel" data-fix="passos">
+              <ol class="fix-steps">
+                <li>Peça a um desenvolvedor para adicionar uma biblioteca de segurança padrão (como o "helmet", se o projeto usa Node.js), que já configura essas proteções automaticamente.</li>
+              </ol>
+            </div>
+            <div class="fix-panel" data-fix="prompt">
+              <div class="prompt-box">
+                <pre id="prompt-4">Adicione o middleware helmet ao servidor Express deste projeto para configurar automaticamente os cabeçalhos de segurança recomendados (Content-Security-Policy, X-Content-Type-Options, Strict-Transport-Security, entre outros).</pre>
+                <button type="button" class="btn btn--secondary btn--sm js-copy-prompt" data-copy-target="prompt-4">Copiar prompt</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="vuln-card__footer">
+            <a class="btn btn--ghost btn--sm" href="mailto:?subject=Vulnerabilidade%20encontrada%20%E2%80%94%20Cabe%C3%A7alhos%20de%20seguran%C3%A7a%20ausentes&body=Resumo%20tecnico%20gerado%20pelo%20Vibe%20Security%20para%20o%20projeto%20erp-interno-demo.%0A%0ASeveridade%3A%20Baixa%0ALocal%3A%20configuracao%20global%20do%20servidor%20Express%0A%0ADescricao%3A%20a%20aplicacao%20nao%20define%20cabecalhos%20HTTP%20de%20seguranca%20recomendados%20%28Content-Security-Policy%2C%20X-Content-Type-Options%2C%20Strict-Transport-Security%29.%0A%0ACorrecao%20sugerida%3A%20adicionar%20o%20middleware%20helmet%20para%20configurar%20automaticamente%20esses%20cabecalhos.">Encaminhar resumo técnico</a>
+          </div>
+        </div>
+
+      </div>
+
+      <div style="text-align: center; margin-top: 48px;">
+        <form action="varredura.html" method="get">
+          <input type="hidden" name="cargo" data-carry-param="cargo">
+          <button type="submit" class="btn btn--primary">↻ Fazer varredura novamente</button>
+        </form>
+        <p class="text-faint" style="font-size: 13px; margin-top: 12px;">
+          Corrija os pontos acima e rode a varredura de novo para revalidar o projeto.
+        </p>
+      </div>
+
+    </div>
+  </main>
+
+</div>
+
+<script src="js/carry-params.js"></script>
+<script src="js/fake-action.js"></script>
+<script src="js/copy-prompt.js"></script>
+<script src="js/role-messages.js"></script>
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vibe Security · Varredura em andamento</title>
+<link rel="icon" href="assets/logo-without-description.png" type="image/png">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body data-scan-redirect="resultado-nao-seguro.html">
+
+<div class="screen">
+
+  <header class="app-header">
+    <a href="index.html" class="logo-lockup logo-lockup--header">
+      <img src="assets/logo-without-description.png" alt="" class="logo-lockup__mark">
+      <span class="logo-lockup__word">Vibe Security</span>
+    </a>
+    <nav class="header-nav">
+      <a href="perfil.html">Perfil</a>
+      <a href="nova-analise.html">Nova análise</a>
+      <a href="varredura.html" class="is-active">Varredura</a>
+      <a href="agendamentos.html">Agendamentos</a>
+    </nav>
+  </header>
+
+  <main style="flex: 1; display: flex; align-items: center; padding: 48px 24px;">
+    <div class="container" style="max-width: 560px;">
+
+      <p class="eyebrow" style="margin-bottom: 10px; display: flex; align-items: center; gap: 8px;">
+        <span class="pulse-dot"></span> Varredura em andamento
+      </p>
+      <h1 style="font-size: 28px; margin-bottom: 8px;">Analisando seu código…</h1>
+      <p class="text-muted" id="scan-status-text" style="font-size: 15px;">
+        erp-interno-demo · 214 arquivos
+      </p>
+
+      <div class="scan-progress-track">
+        <div class="scan-progress-fill" id="scan-progress-fill"></div>
+      </div>
+
+      <ul class="scan-list">
+        <li class="scan-item">
+          <span class="scan-item__indicator"></span>
+          <span class="scan-item__label">Segredos e credenciais expostas</span>
+        </li>
+        <li class="scan-item">
+          <span class="scan-item__indicator"></span>
+          <span class="scan-item__label">Dependências desatualizadas ou vulneráveis</span>
+        </li>
+        <li class="scan-item">
+          <span class="scan-item__indicator"></span>
+          <span class="scan-item__label">Injeção de código (SQL, comandos, entrada de dados)</span>
+        </li>
+        <li class="scan-item">
+          <span class="scan-item__indicator"></span>
+          <span class="scan-item__label">Permissões e controle de acesso</span>
+        </li>
+        <li class="scan-item">
+          <span class="scan-item__indicator"></span>
+          <span class="scan-item__label">Configurações inseguras de ambiente</span>
+        </li>
+        <li class="scan-item" data-duration="3000">
+          <span class="scan-item__indicator"></span>
+          <span class="scan-item__label">Gerando feedback de acordo com seu perfil profissional</span>
+        </li>
+      </ul>
+
+      <div id="scan-cta" style="display: none; text-align: center; margin-top: 32px;">
+        <button type="button" id="scan-cta-button" class="btn btn--primary">Ver feedback</button>
+      </div>
+
+    </div>
+  </main>
+
+</div>
+
+<script src="js/scan.js"></script>
+</body>
+</html>

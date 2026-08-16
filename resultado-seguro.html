@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vibe Security · Resultado: seguro</title>
+<link rel="icon" href="assets/logo-without-description.png" type="image/png">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<div class="screen">
+
+  <header class="app-header">
+    <a href="index.html" class="logo-lockup logo-lockup--header">
+      <img src="assets/logo-without-description.png" alt="" class="logo-lockup__mark">
+      <span class="logo-lockup__word">Vibe Security</span>
+    </a>
+    <nav class="header-nav">
+      <a href="perfil.html">Perfil</a>
+      <a href="nova-analise.html">Nova análise</a>
+      <a href="varredura.html">Varredura</a>
+      <a href="agendamentos.html">Agendamentos</a>
+    </nav>
+    <div class="app-header__meta">
+      <a href="index.html" class="btn btn--ghost btn--sm">Sair</a>
+    </div>
+  </header>
+
+  <main style="flex: 1; display: flex; align-items: center; padding: 56px 24px;">
+    <div class="container" style="max-width: 560px;">
+
+      <div style="text-align: center; margin-bottom: 36px;">
+        <div class="status-icon status-icon--safe">✓</div>
+        <p class="eyebrow" style="margin-top: 22px;">erp-interno-demo · 214 arquivos · 15 ago 2026, 16:47</p>
+        <h1 style="font-size: 30px; margin-top: 10px;">Seguro: pode ir para produção</h1>
+        <p class="text-muted" style="max-width: 440px; margin: 14px auto 0;">
+          Não encontramos vulnerabilidades relevantes. Seu código passou por todas as verificações e está pronto para publicar.
+        </p>
+      </div>
+
+      <div class="card" style="margin-bottom: 28px;">
+        <ul class="check-summary">
+          <li class="check-item">
+            <span class="check-item__icon check-item__icon--safe">✓</span>
+            <span class="check-item__text">Segredos e credenciais expostas<span class="check-item__note">Nenhum problema encontrado</span></span>
+          </li>
+          <li class="check-item">
+            <span class="check-item__icon check-item__icon--safe">✓</span>
+            <span class="check-item__text">Dependências desatualizadas ou vulneráveis<span class="check-item__note">Nenhum problema encontrado</span></span>
+          </li>
+          <li class="check-item">
+            <span class="check-item__icon check-item__icon--safe">✓</span>
+            <span class="check-item__text">Injeção de código (SQL, comandos, entrada de dados)<span class="check-item__note">Nenhum problema encontrado</span></span>
+          </li>
+          <li class="check-item">
+            <span class="check-item__icon check-item__icon--safe">✓</span>
+            <span class="check-item__text">Permissões e controle de acesso<span class="check-item__note">Nenhum problema encontrado</span></span>
+          </li>
+          <li class="check-item">
+            <span class="check-item__icon check-item__icon--safe">✓</span>
+            <span class="check-item__text">Configurações inseguras de ambiente<span class="check-item__note">Nenhum problema encontrado</span></span>
+          </li>
+        </ul>
+      </div>
+
+      <div style="display: flex; justify-content: center;">
+        <button type="button" class="btn btn--primary js-fake-action" data-done="Relatório baixado ✓">Baixar relatório de segurança</button>
+      </div>
+
+      <p style="text-align: center; margin-top: 28px;">
+        <a href="nova-analise.html" class="text-muted" style="font-size: 14px; text-decoration: underline;">Analisar outro projeto</a>
+      </p>
+
+    </div>
+  </main>
+
+</div>
+
+<script src="js/fake-action.js"></script>
+</body>
+</html>

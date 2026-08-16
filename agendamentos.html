@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vibe Security · Agendamentos</title>
+<link rel="icon" href="assets/logo-without-description.png" type="image/png">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<div class="screen">
+
+  <header class="app-header">
+    <a href="index.html" class="logo-lockup logo-lockup--header">
+      <img src="assets/logo-without-description.png" alt="" class="logo-lockup__mark">
+      <span class="logo-lockup__word">Vibe Security</span>
+    </a>
+    <nav class="header-nav">
+      <a href="perfil.html">Perfil</a>
+      <a href="nova-analise.html">Nova análise</a>
+      <a href="varredura.html">Varredura</a>
+      <a href="agendamentos.html" class="is-active">Agendamentos</a>
+    </nav>
+    <div class="app-header__meta">
+      <a href="index.html" class="btn btn--ghost btn--sm">Sair</a>
+    </div>
+  </header>
+
+  <main style="flex: 1; padding: 56px 24px 80px;">
+    <div class="container container--wide" style="max-width: 760px;">
+
+      <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; margin-bottom: 12px;">
+        <div>
+          <p class="eyebrow" style="margin-bottom: 8px;">Automação</p>
+          <h1 style="font-size: 30px;">Agendamento de varreduras</h1>
+        </div>
+        <button type="button" class="btn btn--primary">+ Novo agendamento</button>
+      </div>
+      <p class="text-muted" style="max-width: 560px; margin-bottom: 36px;">
+        Defina a frequência de verificação para cada repositório conectado. Quando encontrarmos algo, você é avisado antes que vire problema em produção.
+      </p>
+
+      <div class="schedule-list">
+
+        <!-- Diária -->
+        <div class="schedule-card">
+          <div class="schedule-card__head">
+            <div>
+              <p class="schedule-card__repo">projeto-aurora-api</p>
+              <p class="text-faint" style="font-size: 13px;">GitHub · main</p>
+            </div>
+            <label class="switch">
+              <input type="checkbox" checked>
+              <span class="switch__track"><span class="switch__thumb"></span></span>
+            </label>
+          </div>
+
+          <div class="schedule-card__freq-row">
+            <span class="schedule-card__freq-label">↻ Diariamente às 03:00</span>
+            <a href="#" class="text-muted" style="font-size: 13px; text-decoration: underline;">Editar</a>
+          </div>
+
+          <div class="schedule-strip">
+            <span class="schedule-strip__dot is-active"></span>
+            <span class="schedule-strip__dot is-active"></span>
+            <span class="schedule-strip__dot is-active"></span>
+            <span class="schedule-strip__dot is-active"></span>
+            <span class="schedule-strip__dot is-active"></span>
+            <span class="schedule-strip__dot is-active"></span>
+            <span class="schedule-strip__dot is-active"></span>
+            <span class="schedule-strip__dot is-active"></span>
+            <span class="schedule-strip__dot is-active"></span>
+            <span class="schedule-strip__dot is-active"></span>
+            <span class="schedule-strip__dot is-active"></span>
+            <span class="schedule-strip__dot is-active"></span>
+            <span class="schedule-strip__dot is-active"></span>
+            <span class="schedule-strip__dot is-active"></span>
+          </div>
+          <p class="schedule-strip__caption">Próximos 14 dias</p>
+
+          <div class="schedule-card__footer">
+            <span>Última: 15 ago 2026, 03:00 <span class="badge badge--safe" style="margin-left: 4px;"><span class="badge__dot"></span>Seguro</span></span>
+            <span>Próxima: 16 ago 2026, 03:00</span>
+          </div>
+        </div>
+
+        <!-- Semanal -->
+        <div class="schedule-card">
+          <div class="schedule-card__head">
+            <div>
+              <p class="schedule-card__repo">erp-interno-demo</p>
+              <p class="text-faint" style="font-size: 13px;">GitHub · main</p>
+            </div>
+            <label class="switch">
+              <input type="checkbox" checked>
+              <span class="switch__track"><span class="switch__thumb"></span></span>
+            </label>
+          </div>
+
+          <div class="schedule-card__freq-row">
+            <span class="schedule-card__freq-label">↻ Semanalmente, segundas às 09:00</span>
+            <a href="#" class="text-muted" style="font-size: 13px; text-decoration: underline;">Editar</a>
+          </div>
+
+          <div class="schedule-strip">
+            <span class="schedule-strip__dot"></span>
+            <span class="schedule-strip__dot"></span>
+            <span class="schedule-strip__dot"></span>
+            <span class="schedule-strip__dot is-active"></span>
+            <span class="schedule-strip__dot"></span>
+            <span class="schedule-strip__dot"></span>
+            <span class="schedule-strip__dot"></span>
+            <span class="schedule-strip__dot"></span>
+            <span class="schedule-strip__dot"></span>
+            <span class="schedule-strip__dot"></span>
+            <span class="schedule-strip__dot is-active"></span>
+            <span class="schedule-strip__dot"></span>
+            <span class="schedule-strip__dot"></span>
+            <span class="schedule-strip__dot"></span>
+          </div>
+          <p class="schedule-strip__caption">Próximos 14 dias</p>
+
+          <div class="schedule-card__footer">
+            <span>Última: 12 ago 2026, 09:00 <span class="badge badge--danger" style="margin-left: 4px;"><span class="badge__dot"></span>Não seguro</span></span>
+            <span>Próxima: 18 ago 2026, 09:00</span>
+          </div>
+        </div>
+
+        <!-- Sob demanda -->
+        <div class="schedule-card">
+          <div class="schedule-card__head">
+            <div>
+              <p class="schedule-card__repo">landing-page-v2</p>
+              <p class="text-faint" style="font-size: 13px;">GitHub · main</p>
+            </div>
+            <label class="switch">
+              <input type="checkbox" checked>
+              <span class="switch__track"><span class="switch__thumb"></span></span>
+            </label>
+          </div>
+
+          <div class="schedule-card__freq-row">
+            <span class="schedule-card__freq-label">↻ Sob demanda, a cada novo commit</span>
+            <a href="#" class="text-muted" style="font-size: 13px; text-decoration: underline;">Editar</a>
+          </div>
+
+          <span class="schedule-manual">Sem agenda fixa · dispara com cada push</span>
+
+          <div class="schedule-card__footer">
+            <span>Última: 14 ago 2026, 18:22 <span class="badge badge--safe" style="margin-left: 4px;"><span class="badge__dot"></span>Seguro</span></span>
+            <span>Próxima: assim que houver um novo commit</span>
+          </div>
+        </div>
+
+        <!-- Mensal -->
+        <div class="schedule-card">
+          <div class="schedule-card__head">
+            <div>
+              <p class="schedule-card__repo">bot-atendimento-whatsapp</p>
+              <p class="text-faint" style="font-size: 13px;">GitHub · main</p>
+            </div>
+            <label class="switch">
+              <input type="checkbox">
+              <span class="switch__track"><span class="switch__thumb"></span></span>
+            </label>
+          </div>
+
+          <div class="schedule-card__freq-row">
+            <span class="schedule-card__freq-label">↻ Mensalmente, todo dia 1 às 04:00</span>
+            <a href="#" class="text-muted" style="font-size: 13px; text-decoration: underline;">Editar</a>
+          </div>
+
+          <div class="schedule-strip">
+            <span class="schedule-strip__dot"></span>
+            <span class="schedule-strip__dot"></span>
+            <span class="schedule-strip__dot"></span>
+            <span class="schedule-strip__dot"></span>
+            <span class="schedule-strip__dot"></span>
+            <span class="schedule-strip__dot"></span>
+            <span class="schedule-strip__dot"></span>
+            <span class="schedule-strip__dot"></span>
+            <span class="schedule-strip__dot"></span>
+            <span class="schedule-strip__dot"></span>
+            <span class="schedule-strip__dot"></span>
+            <span class="schedule-strip__dot"></span>
+            <span class="schedule-strip__dot is-active"></span>
+            <span class="schedule-strip__dot"></span>
+          </div>
+          <p class="schedule-strip__caption">Próximos 14 dias · pausado</p>
+
+          <div class="schedule-card__footer">
+            <span>Última: 01 ago 2026, 04:00 <span class="badge badge--safe" style="margin-left: 4px;"><span class="badge__dot"></span>Seguro</span></span>
+            <span>Próxima: 27 ago 2026, 04:00</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+</div>
+
+</body>
+</html>

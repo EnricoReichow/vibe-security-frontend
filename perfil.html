@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vibe Security · Configuração de perfil</title>
+<link rel="icon" href="assets/logo-without-description.png" type="image/png">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<div class="screen">
+
+  <header class="app-header">
+    <a href="index.html" class="logo-lockup logo-lockup--header">
+      <img src="assets/logo-without-description.png" alt="" class="logo-lockup__mark">
+      <span class="logo-lockup__word">Vibe Security</span>
+    </a>
+    <nav class="header-nav">
+      <a href="perfil.html" class="is-active">Perfil</a>
+      <a href="nova-analise.html">Nova análise</a>
+      <a href="varredura.html">Varredura</a>
+      <a href="agendamentos.html">Agendamentos</a>
+    </nav>
+    <div class="app-header__meta">
+      <a href="index.html" class="btn btn--ghost btn--sm">Sair</a>
+    </div>
+  </header>
+
+  <main style="flex: 1; display: flex; align-items: center; padding: 48px 24px;">
+    <div class="container" style="max-width: 620px;">
+
+      <p class="eyebrow" style="margin-bottom: 10px;">Antes de começar</p>
+      <h1 style="font-size: 30px; margin-bottom: 12px;">Personalize sua experiência</h1>
+      <p class="text-muted" style="font-size: 15px; margin-bottom: 36px;">
+        Vamos adaptar a explicação de cada vulnerabilidade e as recomendações de correção ao seu perfil: sem jargão desnecessário se você não quiser, e com todo o detalhe técnico se você quiser.
+      </p>
+
+      <form action="nova-analise.html" method="get">
+
+        <div style="margin-bottom: 32px;">
+          <label class="field__hint" style="display: block; font-size: 13px; font-weight: 600; color: var(--text); margin-bottom: 12px;">
+            Qual é a sua área ou cargo?
+          </label>
+          <div class="reveal-block">
+            <div class="option-grid">
+              <label class="option-card">
+                <input type="radio" name="cargo" value="infraestrutura">
+                <span class="option-card__body">
+                  <span class="option-card__title">Infraestrutura</span>
+                </span>
+                <span class="option-card__radio"></span>
+              </label>
+              <label class="option-card">
+                <input type="radio" name="cargo" value="desenvolvimento">
+                <span class="option-card__body">
+                  <span class="option-card__title">Desenvolvimento</span>
+                </span>
+                <span class="option-card__radio"></span>
+              </label>
+              <label class="option-card">
+                <input type="radio" name="cargo" value="produto">
+                <span class="option-card__body">
+                  <span class="option-card__title">Produto / Design</span>
+                </span>
+                <span class="option-card__radio"></span>
+              </label>
+              <label class="option-card">
+                <input type="radio" name="cargo" value="fundador">
+                <span class="option-card__body">
+                  <span class="option-card__title">Fundador(a) / Empreendedor(a)</span>
+                </span>
+                <span class="option-card__radio"></span>
+              </label>
+              <label class="option-card option-card--full">
+                <input type="radio" name="cargo" value="outro" class="reveal-trigger">
+                <span class="option-card__body">
+                  <span class="option-card__title">Outro</span>
+                </span>
+                <span class="option-card__radio"></span>
+              </label>
+            </div>
+
+            <div class="field reveal-field" style="margin-bottom: 0;">
+              <label for="cargo_outro_texto">Qual é o seu cargo ou área?</label>
+              <input type="text" id="cargo_outro_texto" name="cargo_outro_texto" placeholder="ex.: Marketing, Jurídico, Dados...">
+            </div>
+          </div>
+        </div>
+
+        <div style="margin-bottom: 40px;">
+          <label class="field__hint" style="display: block; font-size: 13px; font-weight: 600; color: var(--text); margin-bottom: 12px;">
+            Qual o seu nível de conhecimento técnico?
+          </label>
+          <div class="option-list">
+            <label class="option-card">
+              <input type="radio" name="nivel" value="nenhum">
+              <span class="option-card__body">
+                <span class="option-card__title">Nenhum</span>
+                <span class="option-card__desc">Não escrevo código. Prefiro explicações em linguagem simples e um passo a passo do que fazer.</span>
+              </span>
+              <span class="option-card__radio"></span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="nivel" value="basico">
+              <span class="option-card__body">
+                <span class="option-card__title">Básico</span>
+                <span class="option-card__desc">Entendo o básico de programação, mas não teria confiança para corrigir um problema técnico sozinho(a).</span>
+              </span>
+              <span class="option-card__radio"></span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="nivel" value="avancado">
+              <span class="option-card__body">
+                <span class="option-card__title">Avançado</span>
+                <span class="option-card__desc">Leio e escrevo código com fluência. Quero o detalhe técnico completo.</span>
+              </span>
+              <span class="option-card__radio"></span>
+            </label>
+          </div>
+        </div>
+
+        <div style="display: flex; justify-content: flex-end;">
+          <button type="submit" class="btn btn--primary">Continuar</button>
+        </div>
+
+      </form>
+    </div>
+  </main>
+
+</div>
+
+</body>
+</html>

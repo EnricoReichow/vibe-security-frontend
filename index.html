@@ -3,43 +3,316 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Vibe Security · Entrar</title>
+<title>Vibe Security · Segurança para código humano e de IA</title>
 <link rel="icon" href="assets/logo-without-description.png" type="image/png">
 <link rel="stylesheet" href="css/styles.css">
+<link rel="stylesheet" href="css/landing.css">
 </head>
 <body>
 
-<main class="screen" style="align-items: center; justify-content: center; padding: 48px 24px;">
-  <div style="width: 100%; max-width: 400px; display: flex; flex-direction: column; align-items: center;">
-
-    <a href="index.html" style="display: inline-block; margin-bottom: 28px;">
-      <img src="assets/logo-with-description.png" alt="Vibe Security · Sua Segurança em Sintonia" style="width: 300px; max-width: 78vw;">
-    </a>
-
-    <p class="text-muted" style="text-align: center; font-size: 15px; margin-bottom: 40px;">
-      Descubra vulnerabilidades no seu código, humano ou&nbsp;de&nbsp;IA, antes de ir para produção.
-    </p>
-
-    <form class="card" action="perfil.html" method="get" style="width: 100%; padding: 36px 32px 32px;">
-      <div class="field">
-        <label for="email">E-mail</label>
-        <input type="email" id="email" name="email" placeholder="voce@empresa.com" autocomplete="email">
-      </div>
-
-      <div class="field" style="margin-bottom: 24px;">
-        <label for="password">Senha</label>
-        <input type="password" id="password" name="password" placeholder="••••••••" autocomplete="current-password">
-      </div>
-
-      <button type="submit" class="btn btn--primary btn--block">Entrar</button>
-
-      <p class="text-faint" style="text-align: center; font-size: 13px; margin-top: 20px;">
-        Esqueceu a senha? <a href="#" style="color: var(--text-muted); text-decoration: underline;">Recuperar acesso</a>
-      </p>
-    </form>
-
+<div class="landing-topbar">
+  <div class="landing-container" style="display: flex; justify-content: flex-end;">
+    <a href="login.html" class="btn btn--secondary btn--sm">Login</a>
   </div>
-</main>
+</div>
+
+<!-- 1. HERO -->
+<section class="hero">
+  <div class="landing-container">
+    <img src="assets/logo-with-description.png" alt="Vibe Security" class="hero__logo">
+    <h1 class="hero__title">O código que a IA escreveu por você pode ter uma falha que ninguém revisou.</h1>
+    <p class="hero__subtitle">A Vibe Security varre seu projeto, código humano ou "vibecodado", encontra vulnerabilidades e explica exatamente o que fazer, no nível técnico que você entende.</p>
+
+    <div class="stat-badge">
+      <span class="stat-badge__number">+50%</span>
+      <span class="stat-badge__text">
+        <span class="stat-badge__desc">das pessoas com interesse em IA consideram a segurança do código essencial antes de publicar um projeto.</span>
+        <span class="stat-badge__note">Pesquisa de mercado própria</span>
+      </span>
+    </div>
+  </div>
+</section>
+
+<!-- 2. O PROBLEMA -->
+<section>
+  <div class="landing-container">
+    <p class="eyebrow section-eyebrow">O problema</p>
+    <h2 class="section-title">Ferramentas de IA colocaram a criação de software ao alcance de qualquer pessoa. A revisão de segurança não acompanhou o ritmo.</h2>
+    <p class="problem-copy">
+      Cada vez mais gente sem experiência técnica usa IA para criar aplicativos, automações e sistemas internos, e publica esse código sem que ele nunca tenha passado por uma checagem de segurança. Não é falta de cuidado: essa etapa simplesmente não existia até agora, e o que sobe para produção assim pode carregar falhas que só aparecem quando já é tarde.
+    </p>
+  </div>
+</section>
+
+<!-- 3. COMO FUNCIONA -->
+<section>
+  <div class="landing-container">
+    <p class="eyebrow section-eyebrow">Como funciona</p>
+    <h2 class="section-title">Da conexão do código até a validação final</h2>
+    <p class="section-subtitle">Sem etapas escondidas, sem jargão que você não pediu.</p>
+
+    <div class="steps-grid">
+      <div class="step-card">
+        <div class="step-card__number">1</div>
+        <p class="step-card__title">Conecte ou envie seu código</p>
+        <p class="step-card__desc">Repositório do GitHub ou upload direto dos arquivos e pastas.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-card__number">2</div>
+        <p class="step-card__title">A varredura identifica as vulnerabilidades</p>
+        <p class="step-card__desc">Credenciais expostas, dependências vulneráveis, validação de entrada e mais.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-card__number">3</div>
+        <p class="step-card__title">Você recebe orientação sob medida</p>
+        <p class="step-card__desc">Explicação adaptada ao seu nível técnico e ao seu cargo ou função.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-card__number">4</div>
+        <p class="step-card__title">Corrija e revalide</p>
+        <p class="step-card__desc">Aplique a correção e rode a varredura de novo até o projeto ficar limpo.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 4. O DIFERENCIAL -->
+<section class="diff-section">
+  <div class="landing-container">
+    <p class="eyebrow section-eyebrow">O diferencial</p>
+    <h2 class="section-title">Mesma vulnerabilidade. Duas explicações.</h2>
+    <p class="section-subtitle">A gente não fala a mesma língua com todo mundo, porque nem todo mundo precisa do mesmo nível de detalhe.</p>
+
+    <div class="diff-card">
+      <div class="diff-card__col">
+        <span class="badge badge--info diff-card__label"><span class="badge__dot"></span>Perfil não técnico</span>
+        <p class="diff-card__vuln">Credencial de API exposta no código</p>
+        <p class="diff-card__text">Encontramos uma senha do seu sistema de pagamentos escrita direto no código. É como deixar a chave debaixo do tapete: quem encontrar o código, encontra a chave. Fale com quem cuidou do desenvolvimento e peça para trocar essa senha o quanto antes.</p>
+      </div>
+      <div class="diff-card__col">
+        <span class="badge badge--info diff-card__label"><span class="badge__dot"></span>Perfil técnico</span>
+        <p class="diff-card__vuln">Credencial de API exposta no código</p>
+        <p class="diff-card__text">Chave de API da Stripe hardcoded em <code>src/config/payments.js:14</code>, versionada no histórico do Git. Revogue a chave, mova o valor para uma variável de ambiente e adicione <code>.env</code> ao <code>.gitignore</code>.</p>
+      </div>
+    </div>
+
+    <p class="diff-note">A Vibe Security identifica cada vulnerabilidade e orienta a correção, adaptando a linguagem ao seu perfil, nível técnico e função. Ela não corrige o código automaticamente.</p>
+  </div>
+</section>
+
+<!-- 5. PARA QUEM É -->
+<section>
+  <div class="landing-container">
+    <p class="eyebrow section-eyebrow">Para quem é</p>
+    <h2 class="section-title">De quem está começando a quem já tem um time inteiro</h2>
+
+    <div class="audience-grid">
+      <div class="audience-card">
+        <p class="audience-card__title">Microempreendedores e pessoas físicas</p>
+        <p class="audience-card__text">Você usou IA para criar sua ferramenta, mas não sabe se é seguro publicar. A gente te diz.</p>
+      </div>
+      <div class="audience-card">
+        <p class="audience-card__title">Empresas</p>
+        <p class="audience-card__text">Sua equipe usa IA para acelerar o desenvolvimento. Garanta que a velocidade não vire vulnerabilidade.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 6. O QUE DETECTAMOS -->
+<section>
+  <div class="landing-container">
+    <p class="eyebrow section-eyebrow">O que detectamos</p>
+    <h2 class="section-title">Os tipos de falha mais comuns em código publicado sem revisão</h2>
+
+    <div class="detect-grid">
+      <div class="detect-item">
+        <span class="detect-icon">
+          <svg viewBox="0 0 24 24" fill="none"><circle cx="7" cy="14" r="4" stroke="currentColor" stroke-width="1.6"/><path d="M10 11 20 1M17 4l3 3M14 7l2.5 2.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+        <span>
+          <p class="detect-item__title">Credenciais e chaves expostas</p>
+          <p class="detect-item__desc">Senhas e chaves de acesso escritas direto no código.</p>
+        </span>
+      </div>
+      <div class="detect-item">
+        <span class="detect-icon">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M3 7l9-4 9 4-9 4-9-4Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M3 7v10l9 4 9-4V7M12 11v10" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+        </span>
+        <span>
+          <p class="detect-item__title">Dependências vulneráveis</p>
+          <p class="detect-item__desc">Bibliotecas desatualizadas com falhas já conhecidas.</p>
+        </span>
+      </div>
+      <div class="detect-item">
+        <span class="detect-icon">
+          <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="8" width="18" height="8" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M7 12h.01" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/><circle cx="18" cy="6" r="1.6" fill="currentColor"/></svg>
+        </span>
+        <span>
+          <p class="detect-item__title">Falta de validação de entrada</p>
+          <p class="detect-item__desc">Campos e rotas que aceitam qualquer dado sem checar.</p>
+        </span>
+      </div>
+      <div class="detect-item">
+        <span class="detect-icon">
+          <svg viewBox="0 0 24 24" fill="none"><rect x="5" y="11" width="14" height="9" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M8 11V8a4 4 0 0 1 7.2-2.4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+        </span>
+        <span>
+          <p class="detect-item__title">Permissões excessivas</p>
+          <p class="detect-item__desc">Acessos e configurações mais abertos do que deveriam.</p>
+        </span>
+      </div>
+      <div class="detect-item">
+        <span class="detect-icon">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M9 6l-6 6 6 6M15 6l6 6-6 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+        <span>
+          <p class="detect-item__title">Injeção de código</p>
+          <p class="detect-item__desc">Pontos onde entrada externa pode virar comando executado.</p>
+        </span>
+      </div>
+      <div class="detect-item">
+        <span class="detect-icon">
+          <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.6"/><path d="M12 3v2M12 19v2M3 12h2M19 12h2M5.6 5.6l1.4 1.4M17 17l1.4 1.4M18.4 5.6 17 7M7 17l-1.4 1.4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+        </span>
+        <span>
+          <p class="detect-item__title">Configurações inseguras</p>
+          <p class="detect-item__desc">Ambientes e serviços configurados de forma arriscada.</p>
+        </span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 7. CONFIANÇA E SEGURANÇA -->
+<section class="trust-section">
+  <div class="landing-container">
+    <p class="eyebrow section-eyebrow">Confiança e segurança</p>
+    <h2 class="section-title">Um produto de segurança começa pelo respeito aos seus dados</h2>
+
+    <div class="trust-grid">
+      <div class="trust-card">
+        <p class="trust-card__title">Seu código não fica armazenado</p>
+        <p class="trust-card__desc">Cada arquivo é analisado e descartado na hora. Não guardamos cópias do seu projeto em nenhum momento.</p>
+      </div>
+      <div class="trust-card">
+        <p class="trust-card__title">Só guardamos o status</p>
+        <p class="trust-card__desc">Mantemos apenas o resultado da última análise de cada repositório, nunca o código em si.</p>
+        <div class="trust-example">
+          <span class="badge badge--safe"><span class="badge__dot"></span>Seguro — verificado em 12/08</span>
+          <span class="badge badge--danger"><span class="badge__dot"></span>Não seguro — verificado em 10/08</span>
+        </div>
+      </div>
+      <div class="trust-card">
+        <p class="trust-card__title">Credenciais nunca aparecem sem máscara</p>
+        <p class="trust-card__desc">Qualquer segredo encontrado é exibido de forma protegida, em qualquer tela ou relatório.</p>
+        <div class="trust-example">
+          <span class="secret-chip">sk-live-••••••••1234</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 8. PESQUISA DE MERCADO -->
+<section>
+  <div class="landing-container research-stat">
+    <p class="eyebrow section-eyebrow">Pesquisa de mercado</p>
+    <div class="stat-badge">
+      <span class="stat-badge__number">+50%</span>
+      <span class="stat-badge__text">
+        <span class="stat-badge__desc">consideram a segurança do código essencial antes de publicar um projeto.</span>
+        <span class="stat-badge__note">Pesquisa de mercado própria</span>
+      </span>
+    </div>
+    <p class="research-stat__copy">
+      Em pesquisa realizada com o público-alvo do produto, pessoas físicas, microempreendedores e profissionais de tecnologia que usam IA no dia a dia, mais da metade afirmou considerar a segurança do código um fator essencial antes de publicar um projeto. É essa lacuna que a Vibe Security existe para fechar.
+    </p>
+  </div>
+</section>
+
+<!-- 9. PLANOS -->
+<section>
+  <div class="landing-container">
+    <p class="eyebrow section-eyebrow">Planos</p>
+    <h2 class="section-title">Um plano para cada tamanho de projeto</h2>
+    <p class="section-subtitle">Da pessoa que publica sozinha ao time com dezenas de colaboradores.</p>
+
+    <div class="pricing-grid">
+      <div class="pricing-card">
+        <p class="pricing-card__name">Basic</p>
+        <p class="pricing-card__desc">Para quem cria e publica projetos por conta própria.</p>
+        <p class="pricing-card__price">
+          <span class="pricing-card__amount">R$ 59,99</span>
+          <span class="pricing-card__period">/mês</span>
+        </p>
+      </div>
+      <div class="pricing-card pricing-card--featured">
+        <span class="pricing-card__tag">Mais popular</span>
+        <p class="pricing-card__name">Pro</p>
+        <p class="pricing-card__desc">Para quem faz varreduras com frequência e não pode esperar.</p>
+        <p class="pricing-card__price">
+          <span class="pricing-card__amount">R$ 149,99</span>
+          <span class="pricing-card__period">/mês</span>
+        </p>
+        <p class="pricing-card__quota">Até 50 análises por mês</p>
+      </div>
+      <div class="pricing-card">
+        <p class="pricing-card__name">Business</p>
+        <p class="pricing-card__desc">Para empresas com times maiores. Valor calculado por quantidade de colaboradores.</p>
+        <p class="pricing-card__price"><a href="mailto:contato@vibesecurity.com.br?subject=Interesse%20em%20plano%20Business" style="color: inherit; text-decoration: none;">Solicitar preço</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 10. FAQ -->
+<section>
+  <div class="landing-container">
+    <p class="eyebrow section-eyebrow">Perguntas frequentes</p>
+    <h2 class="section-title">FAQ</h2>
+
+    <div class="faq-list">
+      <details class="faq-item">
+        <summary>Meu código fica salvo na plataforma?</summary>
+        <p>Não. Ele é analisado e descartado na hora. Guardamos apenas o último status da análise (seguro ou não seguro) e a data, nunca o código em si.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Como funciona a correção das vulnerabilidades?</summary>
+        <p>A plataforma identifica o problema e dá orientação de correção adaptada ao seu perfil, familiaridade técnica e cargo. Ela não corrige o código automaticamente.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Preciso saber programar para usar?</summary>
+        <p>Não. A explicação de cada vulnerabilidade se adapta ao seu nível técnico, do zero ao avançado.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Como envio meu código?</summary>
+        <p>Conectando um repositório do GitHub, ou fazendo upload de arquivos e pastas direto na plataforma.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Quanto custa?</summary>
+        <p>Os planos ainda estão em definição. Por enquanto, fale com a gente para entender o que faz sentido para o seu caso.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- 11. RODAPÉ -->
+<footer class="landing-footer">
+  <div class="landing-container landing-footer__inner">
+    <a href="index.html" class="logo-lockup logo-lockup--header">
+      <img src="assets/logo-without-description.png" alt="" class="logo-lockup__mark">
+      <span class="logo-lockup__word">Vibe Security</span>
+    </a>
+    <nav class="landing-footer__links">
+      <a href="#">Produto</a>
+      <a href="#">Segurança</a>
+      <a href="mailto:contato@vibesecurity.com.br">Contato</a>
+      <a href="login.html">Login</a>
+    </nav>
+    <p class="landing-footer__copy">© 2026 Vibe Security. Todos os direitos reservados.</p>
+  </div>
+</footer>
 
 </body>
 </html>

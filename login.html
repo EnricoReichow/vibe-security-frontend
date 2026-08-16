@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vibe Security · Entrar</title>
+<link rel="icon" href="assets/logo-without-description.png" type="image/png">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<main class="screen" style="align-items: center; justify-content: center; padding: 48px 24px;">
+  <div style="width: 100%; max-width: 400px; display: flex; flex-direction: column; align-items: center;">
+
+    <a href="index.html" style="display: inline-block; margin-bottom: 28px;">
+      <img src="assets/logo-with-description.png" alt="Vibe Security · Sua Segurança em Sintonia" style="width: 300px; max-width: 78vw;">
+    </a>
+
+    <p class="text-muted" style="text-align: center; font-size: 15px; margin-bottom: 40px;">
+      Descubra vulnerabilidades no seu código, humano ou&nbsp;de&nbsp;IA, antes de ir para produção.
+    </p>
+
+    <form class="card" action="perfil.html" method="get" style="width: 100%; padding: 36px 32px 32px;">
+      <div class="field">
+        <label for="email">E-mail</label>
+        <input type="email" id="email" name="email" placeholder="voce@empresa.com" autocomplete="email">
+      </div>
+
+      <div class="field" style="margin-bottom: 24px;">
+        <label for="password">Senha</label>
+        <input type="password" id="password" name="password" placeholder="••••••••" autocomplete="current-password">
+      </div>
+
+      <button type="submit" class="btn btn--primary btn--block">Entrar</button>
+
+      <p class="text-faint" style="text-align: center; font-size: 13px; margin-top: 20px;">
+        Esqueceu a senha? <a href="#" style="color: var(--text-muted); text-decoration: underline;">Recuperar acesso</a>
+      </p>
+    </form>
+
+  </div>
+</main>
+
+</body>
+</html>

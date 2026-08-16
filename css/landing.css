@@ -68,7 +68,15 @@ section + section {
   font-size: 18px;
   color: var(--text-muted);
   max-width: 580px;
+  margin: 0 auto 36px;
+}
+
+.hero__cta {
+  display: flex;
+  width: fit-content;
   margin: 0 auto 44px;
+  padding: 14px 30px;
+  font-size: 15px;
 }
 
 .stat-badge {

@@ -42,18 +42,10 @@ section + section {
   color: var(--text-muted);
 }
 
-/* ---------- topbar ---------- */
-
-.landing-topbar {
-  display: flex;
-  justify-content: flex-end;
-  padding: 28px 0 0;
-}
-
 /* ---------- hero ---------- */
 
 .hero {
-  padding-top: 40px;
+  padding-top: 72px;
   padding-bottom: 96px;
   border-top: none;
   text-align: center;
